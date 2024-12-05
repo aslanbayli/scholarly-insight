@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Grid, Typography, CircularProgress } from '@mui/material';
+import { Box, Grid2, Typography, CircularProgress } from '@mui/material';
 import SearchAndFilter from '../components/SearchAndFilter';
 import PaperList from '../components/PaperList';
 import { fetchPapersFromBackend } from '../services/api'; // Fetch papers via backend
@@ -46,6 +46,7 @@ function HomePage() {
 
   // Handle category selection changes
   const handleCategoryChange = (newCategory) => {
+    console.log(newCategory)
     setCategory(newCategory);
   };
 
@@ -90,18 +91,18 @@ function HomePage() {
         </Box>
       ) : (
         // Display list of papers
-        <Grid container spacing={2} sx={{ mt: 4 }}>
+        <Grid2 container spacing={2} sx={{ mt: 4 }}>
           {papers.map((paper, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid2 item xs={12} sm={6} md={4} key={index}>
               <PaperList
                 title={paper.title}
-                authors={paper.authors}
+                authors={paper.author}
                 summary={paper.summary}
-                link={paper.id}
+                link={paper.link}
               />
-            </Grid>
+            </Grid2>
           ))}
-        </Grid>
+        </Grid2>
       )}
     </Box>
   );

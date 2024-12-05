@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 import requests
 import Levenshtein
 import xmltodict
@@ -74,7 +72,7 @@ def search_articles(request):
         api_url += f"+AND+au:{author}"
     if category:
         api_url += f"+AND+cat:{category}"
-    api_url += "&start=0&max_results=10"  # Optional pagination limit
+    api_url += "&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending"  # Optional pagination limit
 
     # Fetch data from arXiv API
     response = requests.get(api_url)

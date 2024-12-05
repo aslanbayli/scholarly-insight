@@ -11,13 +11,19 @@ function SearchAndFilter({ onSearch, onCategoryChange }) {
     'Electrical Engineering and Systems Science', 'Economics',
   ];
 
+  const category_map = {
+    'All Categories':'', 'Physics':'physics.*', 'Mathematics':'math.*', 'Quantitative Biology':'q-bio.*',
+    'Computer Science':'cs.*', 'Quantitative Finance':'q-fin.*', 'Statistics':'stat.*',
+    'Electrical Engineering and Systems Science':'eess.*', 'Economics':'econ.*',
+  };
+
   const handleSearch = () => {
     onSearch(searchTerm);
   };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    onCategoryChange(category);
+    onCategoryChange(category_map[category]);
   };
   
   return (
@@ -46,7 +52,7 @@ function SearchAndFilter({ onSearch, onCategoryChange }) {
               <SearchRoundedIcon />
             </InputAdornment>
           }
-          onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
         />
       </FormControl>
     </Box>
