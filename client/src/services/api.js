@@ -1,9 +1,9 @@
-export const fetchPapersFromBackend = async (searchTerm = '', category = '', maxResults = 10) => {
+export const fetchPapersFromBackend = async (searchTerm = '', category = '', maxResults = 100) => {
     try {
         if (searchTerm === '') searchTerm = 'all the';
       const response = await fetch(
         // `/api/papers?search_term=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}&max_results=${maxResults}`
-        `http://localhost:8000/arxiv/search?query=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}&maxResults=${maxResults}`
+        `http://localhost:8000/arxiv/search?query=${encodeURIComponent(searchTerm)}&category=${encodeURIComponent(category)}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch papers: ${response.statusText}`);

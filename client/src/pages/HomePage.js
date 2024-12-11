@@ -22,7 +22,7 @@ function HomePage() {
     setError(null); // Reset error state
     try {
       // Fetch papers using the search term and category
-      const data = await fetchPapersFromBackend(searchTerm, category, 10);
+      const data = await fetchPapersFromBackend(searchTerm, category, 100);
       setPapers(data); // Update the state with fetched papers
     } catch (err) {
       setError('Failed to load papers. Please try again.'); // Set error message on failure

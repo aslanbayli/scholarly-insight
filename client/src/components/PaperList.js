@@ -16,7 +16,7 @@ function PaperList({ title, authors, summary, link }) {
                 ))
               }
               <Typography variant="body2">{summary}</Typography>
-              <Typography variant="body2"><Link>{link}</Link></Typography>
+              <Typography variant="body2"><Link href={link}>{link}</Link></Typography>
             </CardContent>
           </Card>
   );
